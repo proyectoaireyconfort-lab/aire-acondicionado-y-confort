@@ -1,179 +1,848 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DÚO FRÍO CMMS Lite</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0ea5e9">
+  <title>Aire Acondicionado y Confort | Instalación y Mantenimiento HVAC en ZMG</title>
+  <meta name="description" content="Instalación, mantenimiento y reparación de aires acondicionados minisplit en Tonalá, El Salto, Vistas California, Guadalajara, Tlaquepaque y alrededores. Cotiza por WhatsApp." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <meta property="og:title" content="Aire Acondicionado y Confort" />
+  <meta property="og:description" content="El equilibrio perfecto para tu clima. Instalación, mantenimiento y reparación de minisplits en ZMG." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg:#f8fafc; --fg:#0f172a; --muted:#64748b; --brand:#0ea5e9; --danger:#ef4444; --ok:#16a34a; --card:#ffffff; --line:#e2e8f0;
+    :root{
+      --navy:#0f172a;
+      --navy2:#111827;
+      --blue:#0284c7;
+      --blue2:#0ea5e9;
+      --ice:#e0f2fe;
+      --red:#ef4444;
+      --red2:#dc2626;
+      --gray:#64748b;
+      --soft:#f8fafc;
+      --line:#e2e8f0;
+      --white:#ffffff;
+      --green:#16a34a;
+      --amber:#f59e0b;
+      --shadow:0 24px 70px rgba(15,23,42,.14);
+      --radius:28px;
     }
-    * { box-sizing: border-box; }
-    body { margin:0; background:var(--bg); color:var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif; }
-    header { position:sticky; top:0; background:rgba(255,255,255,.9); backdrop-filter: blur(6px); border-bottom:1px solid var(--line); }
-    .wrap { max-width: 1100px; margin:0 auto; padding: 12px 16px; }
-    .brand { display:flex; align-items:center; gap:10px; }
-    .brand h1 { font-size: 18px; margin:0; }
-    .row { display:flex; gap:10px; align-items:center; }
-    .pill { padding:4px 10px; background:#e2f2fb; border-radius:999px; font-size:12px; }
-    .tabs { display:flex; gap:6px; border-bottom:1px solid var(--line); margin-top:10px; }
-    .tab { padding:8px 12px; border-radius:10px 10px 0 0; cursor:pointer; color:var(--muted); }
-    .tab.active { color:var(--fg); background:var(--card); border:1px solid var(--line); border-bottom: none; }
-    main { padding: 16px; }
-    .grid { display:grid; gap:12px; }
-    @media(min-width:768px){ .grid.cols-2{ grid-template-columns: 1fr 1fr; } .grid.cols-4{ grid-template-columns: repeat(4, 1fr);}}
-    .card { background: var(--card); border:1px solid var(--line); border-radius:14px; padding:12px; }
-    .kpi { text-align:left; }
-    .kpi .v { font-size:24px; font-weight:700; }
-    input, select, textarea, button { font:inherit; }
-    input, select, textarea { width:100%; padding:10px; border:1px solid var(--line); border-radius:10px; background:white; }
-    label { font-size:12px; color:var(--muted); display:block; margin-bottom:4px; }
-    .btn { padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#fff; cursor:pointer; }
-    .btn.brand { background:var(--brand); color:white; border-color: var(--brand); }
-    .btn.danger { background:var(--danger); color:white; border-color: var(--danger); }
-    .btn.ghost { background:transparent; }
-    .row-between { display:flex; align-items:center; justify-content:space-between; gap:10px; }
-    .muted { color: var(--muted); }
-    .badge { display:inline-block; padding:2px 8px; font-size:11px; background:#eef2f7; border-radius:999px; }
-    .list { display:grid; gap:8px; }
-    .hidden { display:none; }
-    .toolbar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-    .chips { display:flex; gap:4px; flex-wrap:wrap; }
-    .thumbs { display:flex; gap:6px; flex-wrap:wrap; }
-    canvas.sig { border:1px dashed var(--line); border-radius:10px; width:100%; height:160px; touch-action:none; background:white; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--soft);
+      color:var(--navy);
+    }
+    a{text-decoration:none;color:inherit}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(226,232,240,.9);
+    }
+    .top-gradient{height:4px;background:linear-gradient(90deg,var(--blue2),#fff,var(--red))}
+    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .brand img{width:54px;height:54px;filter:drop-shadow(0 8px 18px rgba(15,23,42,.16))}
+    .brand-title{
+      font-family:Montserrat,sans-serif;
+      font-weight:900;
+      font-size:clamp(15px,2.8vw,22px);
+      line-height:1.05;
+      letter-spacing:-.03em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand-sub{
+      margin-top:3px;
+      font-size:12px;
+      color:var(--gray);
+      font-style:italic;
+      font-weight:700;
+    }
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px;font-weight:800;color:#334155}
+    .nav-links a:hover{color:var(--blue)}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border-radius:18px;
+      padding:13px 18px;
+      font-weight:900;
+      border:0;
+      cursor:pointer;
+      transition:.18s ease;
+      font-family:Inter,sans-serif;
+      line-height:1;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--navy);color:white;box-shadow:0 16px 34px rgba(15,23,42,.22)}
+    .btn-primary:hover{background:#020617}
+    .btn-blue{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;box-shadow:0 16px 34px rgba(2,132,199,.28)}
+    .btn-white{background:#fff;color:var(--navy);border:1px solid var(--line);box-shadow:0 12px 26px rgba(15,23,42,.08)}
+    .btn-green{background:#16a34a;color:#fff;box-shadow:0 16px 34px rgba(22,163,74,.25)}
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(14,165,233,.22), transparent 32%),
+        radial-gradient(circle at 90% 8%, rgba(239,68,68,.14), transparent 28%),
+        linear-gradient(135deg,#ffffff,#f8fafc);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:44px;
+      align-items:center;
+      padding:74px 0 88px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:0 10px 24px rgba(15,23,42,.08);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      color:#334155;
+      margin-bottom:20px;
+      font-size:14px;
+    }
+    .hero h1{
+      font-family:Montserrat,sans-serif;
+      font-weight:900;
+      font-size:clamp(42px,7vw,76px);
+      line-height:.94;
+      letter-spacing:-.07em;
+      margin:0;
+      max-width:850px;
+    }
+    .hero p{
+      font-size:clamp(17px,2vw,21px);
+      color:#475569;
+      line-height:1.7;
+      max-width:720px;
+      margin:22px 0 0;
+    }
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      max-width:650px;
+      margin-top:34px;
+    }
+    .stat{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:18px;
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+    }
+    .stat b{font-family:Montserrat,sans-serif;font-size:27px;font-weight:900;display:block}
+    .stat span{font-size:12px;font-weight:800;color:var(--gray)}
+    .phone-card{
+      position:relative;
+      background:var(--navy);
+      color:white;
+      border-radius:38px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .phone-card:before{
+      content:"";
+      position:absolute;
+      width:240px;height:240px;
+      border-radius:50%;
+      background:rgba(14,165,233,.28);
+      right:-110px;top:-110px;
+      filter:blur(6px);
+    }
+    .phone-card:after{
+      content:"";
+      position:absolute;
+      width:240px;height:240px;
+      border-radius:50%;
+      background:rgba(239,68,68,.22);
+      left:-120px;bottom:-120px;
+      filter:blur(6px);
+    }
+    .glass{
+      position:relative;
+      z-index:1;
+      border-radius:30px;
+      padding:24px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(14px);
+    }
+    .mini-brand{display:flex;align-items:center;gap:13px}
+    .mini-brand img{width:56px;height:56px}
+    .mini-brand b{font-size:18px}
+    .mini-brand span{display:block;color:rgba(255,255,255,.68);font-size:13px;margin-top:3px}
+    .check-list{display:grid;gap:12px;margin-top:26px}
+    .check{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      padding:13px;
+      border-radius:18px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.1);
+      font-weight:800;
+      font-size:14px;
+      line-height:1.35;
+    }
+    .check i{color:#86efac;font-style:normal;font-size:18px;line-height:1}
+    .hotcold{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:16px;
+    }
+    .tile{
+      border-radius:25px;
+      padding:22px;
+      border:1px solid rgba(255,255,255,.15);
+    }
+    .tile.blue{background:rgba(14,165,233,.18)}
+    .tile.red{background:rgba(239,68,68,.16)}
+    .tile b{display:block;font-size:26px;font-family:Montserrat,sans-serif;margin-top:16px}
+    .tile span{color:rgba(255,255,255,.7);font-size:13px;font-weight:700}
+    section{padding:78px 0}
+    .section-head{text-align:center;margin:0 auto 42px;max-width:820px}
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:13px;
+      color:var(--blue);
+      font-weight:900;
+      margin-bottom:12px;
+    }
+    .section-head h2{
+      font-family:Montserrat,sans-serif;
+      font-size:clamp(32px,5vw,54px);
+      line-height:1.02;
+      letter-spacing:-.055em;
+      margin:0;
+    }
+    .section-head p{color:var(--gray);font-size:18px;line-height:1.7;margin:18px 0 0}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 16px 40px rgba(15,23,42,.06);
+      transition:.2s ease;
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 24px 58px rgba(15,23,42,.11)}
+    .icon{
+      width:52px;height:52px;border-radius:18px;
+      display:grid;place-items:center;
+      background:#e0f2fe;
+      color:var(--blue);
+      font-size:26px;
+      margin-bottom:18px;
+    }
+    .card h3{font-size:20px;font-family:Montserrat,sans-serif;margin:0 0 10px;font-weight:900;letter-spacing:-.03em}
+    .card p{font-size:15px;line-height:1.65;color:#64748b;margin:0}
+    .split{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:44px;
+      align-items:center;
+    }
+    .split h2{
+      font-family:Montserrat,sans-serif;
+      font-size:clamp(34px,5vw,55px);
+      line-height:1.03;
+      letter-spacing:-.06em;
+      margin:0;
+    }
+    .split p{color:#64748b;line-height:1.75;font-size:18px}
+    .proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .packages-bg{background:#fff}
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price{
+      position:relative;
+      border-radius:32px;
+      padding:28px;
+      border:1px solid var(--line);
+      background:#f8fafc;
+      box-shadow:0 18px 42px rgba(15,23,42,.06);
+    }
+    .price.featured{
+      background:var(--navy);
+      color:white;
+      border-color:#1e293b;
+      transform:scale(1.02);
+    }
+    .tag{
+      display:inline-flex;
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:12px;
+      font-weight:900;
+      background:#e0f2fe;
+      color:#075985;
+      margin-bottom:16px;
+    }
+    .featured .tag{background:rgba(255,255,255,.12);color:#bae6fd}
+    .price h3{font-family:Montserrat,sans-serif;font-size:25px;letter-spacing:-.04em;margin:0}
+    .price .amount{font-family:Montserrat,sans-serif;font-size:31px;font-weight:900;margin:12px 0 20px}
+    .price ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+    .price li{font-weight:800;color:#475569;display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.35}
+    .featured li{color:rgba(255,255,255,.82)}
+    .price li:before{content:"✓";color:var(--green);font-weight:900}
+    .featured li:before{color:#86efac}
+    .featured-badge{
+      position:absolute;
+      right:18px;
+      top:18px;
+      background:var(--blue2);
+      color:#00131f;
+      font-size:11px;
+      border-radius:999px;
+      font-weight:900;
+      padding:7px 10px;
+    }
+    .dark{
+      background:var(--navy);
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .dark:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(14,165,233,.2), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(239,68,68,.16), transparent 28%);
+      pointer-events:none;
+    }
+    .dark .wrap{position:relative;z-index:1}
+    .zones{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .zone{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(255,255,255,.1);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:900;
+      font-size:14px;
+    }
+    .quote-box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:36px;
+      padding:30px;
+      box-shadow:var(--shadow);
+      max-width:980px;
+      margin:auto;
+    }
+    .quote-head{display:flex;gap:14px;align-items:center;margin-bottom:24px}
+    .quote-head .icon{margin:0}
+    .quote-head h3{font-family:Montserrat,sans-serif;font-size:24px;margin:0 0 4px;font-weight:900}
+    .quote-head p{margin:0;color:var(--gray);font-weight:700}
+    .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+    label{display:grid;gap:8px;font-weight:900;color:#334155;font-size:14px}
+    select,input,textarea{
+      width:100%;
+      border:1px solid var(--line);
+      background:#f8fafc;
+      border-radius:18px;
+      padding:14px 14px;
+      font:inherit;
+      outline:none;
+      color:var(--navy);
+    }
+    textarea{min-height:96px;resize:vertical;grid-column:1/-1}
+    select:focus,input:focus,textarea:focus{border-color:var(--blue2);box-shadow:0 0 0 4px rgba(14,165,233,.13)}
+    .form-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .faq{display:grid;gap:14px;max-width:920px;margin:auto}
+    details{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:20px 22px;
+      box-shadow:0 10px 26px rgba(15,23,42,.05);
+    }
+    summary{cursor:pointer;font-weight:900;font-size:17px;font-family:Montserrat,sans-serif}
+    details p{color:#64748b;line-height:1.7;margin:14px 0 0}
+    .floating-wa{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:150;
+      width:62px;height:62px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:#16a34a;
+      box-shadow:0 18px 40px rgba(22,163,74,.35);
+      font-size:30px;
+      border:4px solid #fff;
+    }
+    footer{background:#020617;color:#fff;padding:34px 0}
+    footer .foot{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    }
+    footer img{width:54px;height:54px}
+    .foot-brand{display:flex;align-items:center;gap:12px}
+    .foot-brand b{font-family:Montserrat,sans-serif;font-size:20px}
+    .foot-brand span{display:block;color:rgba(255,255,255,.55);font-style:italic;font-size:13px;margin-top:4px}
+    .foot-info{color:rgba(255,255,255,.62);font-size:14px;line-height:1.6}
+    .hide-mobile{display:inline-flex}
+    @media (max-width: 940px){
+      .nav-links{display:none}
+      .hero-grid,.split{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .pricing{grid-template-columns:1fr}
+      .price.featured{transform:none}
+      .hero-grid{padding-top:42px}
+    }
+    @media (max-width: 620px){
+      .wrap{width:min(100% - 24px,1180px)}
+      .brand img{width:46px;height:46px}
+      .brand-sub{display:none}
+      .nav .btn{padding:12px 13px;font-size:13px}
+      .hero h1{font-size:42px}
+      .hero p{font-size:16px}
+      .stats{grid-template-columns:1fr}
+      .cards,.proof-grid,.form-grid{grid-template-columns:1fr}
+      section{padding:58px 0}
+      .phone-card{border-radius:30px;padding:16px}
+      .glass{padding:18px}
+      .hotcold{grid-template-columns:1fr}
+      .quote-box{padding:20px;border-radius:28px}
+      .hide-mobile{display:none}
+    }
   </style>
-</head>
-<body>
-<header>
-  <div class="wrap row-between">
-    <div class="brand">
-      <img src="icons/icon-192.png" width="28" height="28" alt="logo">
-      <div>
-        <h1>DÚO FRÍO · CMMS Lite</h1>
-        <div id="userTag" class="muted" style="font-size:12px;">Sin sesión</div>
-      </div>
-    </div>
-    <div class="toolbar">
-      <input id="search" placeholder="Buscar..." />
-      <button class="btn" id="exportWO">Exportar OTs</button>
-      <button class="btn" id="exportAssets">Exportar Activos</button>
-      <button class="btn" id="installBtn" style="display:none;">Instalar</button>
-      <button class="btn" id="logoutBtn"><span>Salir</span></button>
-    </div>
-  </div>
-  <div class="wrap tabs">
-    <div class="tab active" data-tab="dashboard">Dashboard</div>
-    <div class="tab" data-tab="orders">Órdenes</div>
-    <div class="tab" data-tab="assets">Activos</div>
-    <div class="tab" data-tab="techs">Técnicos</div>
-    <div class="tab" data-tab="settings">Ajustes</div>
-  </div>
-</header>
 
-<main class="wrap">
-  <!-- Login -->
-  <section id="loginView" class="card">
-    <h2>Iniciar sesión</h2>
-    <div class="grid cols-2">
-      <div>
-        <label>Usuario</label>
-        <input id="loginUser" placeholder="admin / karen">
-      </div>
-      <div>
-        <label>Contraseña</label>
-        <input id="loginPass" placeholder="1234" type="password">
-      </div>
-    </div>
-    <div style="margin-top:10px;">
-      <button class="btn brand" id="loginBtn">Entrar</button>
-      <span class="muted" style="font-size:12px; margin-left:8px;">Demo: admin/1234 (admin) · karen/1234 (técnico)</span>
-    </div>
-  </section>
-
-  <!-- Dashboard -->
-  <section id="dashboard" class="hidden">
-    <div class="grid cols-4">
-      <div class="card kpi"><div class="muted">OTs totales</div><div class="v" id="kpi_total">0</div></div>
-      <div class="card kpi"><div class="muted">OTs abiertas</div><div class="v" id="kpi_open">0</div></div>
-      <div class="card kpi"><div class="muted">Críticas</div><div class="v" id="kpi_critical">0</div></div>
-      <div class="card kpi"><div class="muted">Cerradas 7d</div><div class="v" id="kpi_closed7">0</div></div>
-    </div>
-    <div class="card" style="margin-top:10px;">
-      <div class="muted">Consejo</div>
-      <div>Activa la app desde el menú de Android: <b>Agregar a pantalla principal</b> para usarla como PWA.</div>
-    </div>
-  </section>
-
-  <!-- Órdenes -->
-  <section id="orders" class="hidden">
-    <div class="row-between">
-      <h2>Órdenes de trabajo</h2>
-      <div class="toolbar">
-        <select id="filterStatus">
-          <option value="">Estado (todos)</option>
-          <option>Pendiente</option><option>En progreso</option><option>En revisión</option><option>Cerrada</option>
-        </select>
-        <button class="btn brand" id="newWO">Nueva OT</button>
-      </div>
-    </div>
-    <div id="woList" class="list" style="margin-top:10px;"></div>
-  </section>
-
-  <!-- Activos -->
-  <section id="assets" class="hidden">
-    <div class="row-between">
-      <h2>Activos</h2>
-      <button class="btn brand" id="newAsset">Nuevo Activo</button>
-    </div>
-    <div id="assetList" class="list" style="margin-top:10px;"></div>
-  </section>
-
-  <!-- Técnicos -->
-  <section id="techs" class="hidden">
-    <div class="row-between">
-      <h2>Técnicos</h2>
-      <button class="btn brand" id="newTech">Nuevo Técnico</button>
-    </div>
-    <div id="techList" class="list" style="margin-top:10px;"></div>
-  </section>
-
-  <!-- Ajustes -->
-  <section id="settings" class="hidden">
-    <div class="card">
-      <h3>Empresa</h3>
-      <div class="grid cols-2">
-        <div><label>Nombre comercial</label><input id="companyName"></div>
-        <div><label>Propietario</label><input id="companyOwner"></div>
-      </div>
-      <div style="margin-top:8px;">
-        <button class="btn" id="restoreBtn">Restaurar demo</button>
-        <button class="btn" id="importBtn">Importar CSV</button>
-        <input id="fileCSV" type="file" accept=".csv" class="hidden">
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- Modal genérico -->
-<section id="modal" class="hidden" style="position:fixed; inset:0; display:grid; place-items:center; background:rgba(15,23,42,.3);">
-  <div class="card" style="width:min(720px, 95vw); max-height:90vh; overflow:auto;">
-    <div class="row-between">
-      <h3 id="modalTitle">Modal</h3>
-      <button class="btn" id="modalClose">Cerrar</button>
-    </div>
-    <div id="modalBody" style="margin-top:10px;"></div>
-  </div>
-</section>
-
-<script src="app.js"></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js').catch(console.error);
-    });
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HVACBusiness",
+    "name":"Aire Acondicionado y Confort",
+    "slogan":"El equilibrio perfecto para tu clima",
+    "telephone":"+52 33 1076 6424",
+    "areaServed":["Tonalá","El Salto","Vistas California","Guadalajara","Tlaquepaque","Zapotlanejo"],
+    "description":"Instalación, mantenimiento y reparación de aires acondicionados minisplit con enfoque técnico profesional."
   }
-</script>
+  </script>
+</head>
+
+<body>
+  <a class="floating-wa" id="floatingWa" target="_blank" rel="noreferrer" aria-label="WhatsApp">☏</a>
+
+  <header class="topbar">
+    <div class="top-gradient"></div>
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Aire Acondicionado y Confort">
+        <img src="assets/logo.svg" alt="Logo Aire Acondicionado y Confort">
+        <div>
+          <div class="brand-title">Aire Acondicionado y Confort</div>
+          <div class="brand-sub">El equilibrio perfecto para tu clima</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#zonas">Zonas</a>
+        <a href="#cotizar">Cotizar</a>
+      </nav>
+      <a class="btn btn-primary" id="navWa" target="_blank" rel="noreferrer">WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="badge">⭐ Servicio técnico HVAC en ZMG</div>
+          <h1>Aire acondicionado bien instalado, bien cuidado y sin improvisaciones.</h1>
+          <p>
+            Instalación, mantenimiento y reparación de minisplits con enfoque técnico profesional.
+            Trabajamos para que tu equipo enfríe mejor, consuma lo correcto y dure más tiempo.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="heroWa" target="_blank" rel="noreferrer">Quiero cotizar ahora</a>
+            <a class="btn btn-white" href="#servicios">Ver servicios →</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><b>HVAC</b><span>Técnico especializado</span></div>
+            <div class="stat"><b>ZMG</b><span>Cobertura local</span></div>
+            <div class="stat"><b>Claro</b><span>Cotización sin vueltas</span></div>
+          </div>
+        </div>
+
+        <aside class="phone-card" aria-label="Diferenciadores técnicos">
+          <div class="glass">
+            <div class="mini-brand">
+              <img src="assets/logo.svg" alt="">
+              <div>
+                <b>Servicio profesional</b>
+                <span>Frío, confort y seguridad</span>
+              </div>
+            </div>
+            <div class="check-list">
+              <div class="check"><i>✓</i> Vacío correcto antes del arranque.</div>
+              <div class="check"><i>✓</i> Protección eléctrica recomendada.</div>
+              <div class="check"><i>✓</i> Revisión de amperaje y voltaje.</div>
+              <div class="check"><i>✓</i> Drenaje y tubería bien instalados.</div>
+            </div>
+          </div>
+
+          <div class="hotcold">
+            <div class="tile blue">
+              <div style="font-size:32px">❄️</div>
+              <b>Frío</b>
+              <span>Enfriamiento eficiente</span>
+            </div>
+            <div class="tile red">
+              <div style="font-size:32px">🔥</div>
+              <b>Confort</b>
+              <span>Trabajo limpio y seguro</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Lo que hacemos</div>
+          <h2>Servicios HVAC para casa, negocio y equipos comerciales.</h2>
+          <p>No vendemos humo: revisamos, instalamos y explicamos el trabajo para que sepas exactamente qué se hizo y por qué.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">🌀</div>
+            <h3>Instalación de minisplit</h3>
+            <p>Instalación básica y especializada con vacío, drenaje, tubería, prueba eléctrica y arranque correcto.</p>
+          </article>
+          <article class="card">
+            <div class="icon">💧</div>
+            <h3>Mantenimiento preventivo</h3>
+            <p>Limpieza profunda de evaporador y condensador para mejorar enfriamiento, consumo y vida útil.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🛠️</div>
+            <h3>Diagnóstico y reparación</h3>
+            <p>Revisión técnica real: voltaje, amperaje, presión, drenaje, tarjeta, capacitor, sensores y compresor.</p>
+          </article>
+          <article class="card">
+            <div class="icon">📈</div>
+            <h3>Refrigeración comercial</h3>
+            <p>Apoyo técnico para equipos de mayor capacidad, revisión de operación y mantenimiento industrial/comercial.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages-bg" id="paquetes">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Cotización clara</div>
+          <h2>Paquetes base para que sepas por dónde empezar.</h2>
+          <p>El precio final depende de distancia, altura, material, estado del equipo y complejidad del sitio. Primero revisamos para no cobrar a ciegas.</p>
+        </div>
+
+        <div class="pricing">
+          <article class="price">
+            <span class="tag">Ideal antes del calor</span>
+            <h3>Mantenimiento preventivo</h3>
+            <div class="amount">Desde $900</div>
+            <ul>
+              <li>Limpieza de filtros.</li>
+              <li>Lavado de serpentines.</li>
+              <li>Revisión de drenaje.</li>
+              <li>Prueba de operación.</li>
+            </ul>
+          </article>
+
+          <article class="price featured">
+            <span class="featured-badge">Más solicitado</span>
+            <span class="tag">Trabajo seguro</span>
+            <h3>Instalación básica minisplit</h3>
+            <div class="amount">Cotización según sitio</div>
+            <ul>
+              <li>Tubería y drenaje.</li>
+              <li>Vacío al sistema.</li>
+              <li>Prueba eléctrica.</li>
+              <li>Arranque y verificación.</li>
+            </ul>
+          </article>
+
+          <article class="price">
+            <span class="tag">No adivinamos fallas</span>
+            <h3>Diagnóstico técnico</h3>
+            <div class="amount">Según ubicación</div>
+            <ul>
+              <li>Revisión eléctrica.</li>
+              <li>Revisión de presión.</li>
+              <li>Detección de falla.</li>
+              <li>Recomendación clara.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow" style="color:var(--red)">Diferencia técnica</div>
+          <h2>No es solo instalar. Es dejarlo trabajando como debe.</h2>
+          <p>
+            Un minisplit puede fallar por una mala instalación: vacío deficiente, drenaje mal hecho,
+            cableado improvisado, falta de protección o mala ubicación. Nuestro enfoque es hacerlo bien desde el inicio.
+          </p>
+        </div>
+
+        <div class="proof-grid">
+          <article class="card"><div class="icon">🛡️</div><h3>Instalación segura</h3><p>Protección eléctrica y revisión de operación.</p></article>
+          <article class="card"><div class="icon">⚡</div><h3>Menos improvisación</h3><p>Cuidamos voltaje, amperaje y consumo.</p></article>
+          <article class="card"><div class="icon">📋</div><h3>Trabajo documentado</h3><p>Cotización clara y explicación técnica.</p></article>
+          <article class="card"><div class="icon">⏱️</div><h3>Atención rápida</h3><p>Agenda por WhatsApp según disponibilidad.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" id="zonas">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow" style="color:#7dd3fc">Cobertura</div>
+          <h2>Servicio en Tonalá, El Salto, Vistas California y alrededores.</h2>
+          <p style="color:rgba(255,255,255,.72)">
+            Atendemos zona metropolitana de Guadalajara según agenda y ubicación.
+            Para trabajos fuera de zona se confirma traslado antes de iniciar.
+          </p>
+          <div class="zones">
+            <span class="zone">📍 Tonalá</span>
+            <span class="zone">📍 El Salto</span>
+            <span class="zone">📍 Vistas California</span>
+            <span class="zone">📍 Guadalajara</span>
+            <span class="zone">📍 Tlaquepaque</span>
+            <span class="zone">📍 Zapotlanejo</span>
+          </div>
+        </div>
+
+        <div class="quote-box" style="margin:0;color:var(--navy)">
+          <div class="quote-head">
+            <div class="icon">🏠</div>
+            <div>
+              <h3>Agenda tu visita</h3>
+              <p>Envíanos tu zona, tipo de equipo y qué necesitas.</p>
+            </div>
+          </div>
+          <p style="color:#64748b;line-height:1.7;margin-top:0">
+            Te respondemos con precio base, disponibilidad y recomendaciones para que el trabajo se haga bien desde el inicio.
+          </p>
+          <a class="btn btn-green" id="zoneWa" target="_blank" rel="noreferrer">Agendar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="cotizar">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Contacto</div>
+          <h2>Cotiza rápido y sin vueltas.</h2>
+          <p>Llena estos datos y se arma un mensaje directo para WhatsApp. Así cotizamos más rápido y con menos rodeos.</p>
+        </div>
+
+        <div class="quote-box">
+          <div class="quote-head">
+            <div class="icon">🧮</div>
+            <div>
+              <h3>Cotización rápida</h3>
+              <p>El mensaje se genera automáticamente.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              Servicio
+              <select id="service">
+                <option>Instalación de minisplit</option>
+                <option>Mantenimiento preventivo</option>
+                <option>Diagnóstico / reparación</option>
+                <option>Venta de equipo + instalación</option>
+                <option>Refrigeración comercial</option>
+              </select>
+            </label>
+
+            <label>
+              Zona
+              <select id="zone">
+                <option>Tonalá</option>
+                <option>El Salto</option>
+                <option>Vistas California</option>
+                <option>Guadalajara</option>
+                <option>Tlaquepaque</option>
+                <option>Zapotlanejo</option>
+                <option>Otra zona</option>
+              </select>
+            </label>
+
+            <label>
+              Capacidad / equipo
+              <select id="capacity">
+                <option>1 tonelada / 12,000 BTU</option>
+                <option>1.5 toneladas / 18,000 BTU</option>
+                <option>2 toneladas / 24,000 BTU</option>
+                <option>No sé, necesito asesoría</option>
+                <option>Equipo comercial / industrial</option>
+              </select>
+            </label>
+
+            <label>
+              Nombre
+              <input id="clientName" placeholder="Tu nombre">
+            </label>
+
+            <label style="grid-column:1/-1">
+              Detalles
+              <textarea id="details" placeholder="Ejemplo: segundo piso, cuarto del fondo, tira agua, no enfría, instalación nueva, tengo el equipo, etc."></textarea>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <a class="btn btn-primary" id="quoteWa" target="_blank" rel="noreferrer">Enviar solicitud por WhatsApp</a>
+            <a class="btn btn-white" href="tel:+523310766424">Llamar: 33 1076 6424</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages-bg">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Preguntas frecuentes</div>
+          <h2>Antes de contratar, esto te conviene saber.</h2>
+        </div>
+
+        <div class="faq">
+          <details open>
+            <summary>¿Qué incluye una instalación básica?</summary>
+            <p>Depende del sitio, pero normalmente incluye montaje, tubería básica, drenaje, conexión, vacío y prueba de funcionamiento. Si requiere más metros, bomba de condensados o trabajo eléctrico extra, se cotiza aparte.</p>
+          </details>
+          <details>
+            <summary>¿Por qué es importante el vacío?</summary>
+            <p>Porque ayuda a retirar humedad y aire del sistema antes del arranque. Una instalación sin buen procedimiento puede afectar rendimiento y vida útil del equipo.</p>
+          </details>
+          <details>
+            <summary>¿Puedo comprar el equipo por mi cuenta?</summary>
+            <p>Sí. También podemos apoyarte con instalación y recomendaciones para que el equipo quede protegido y funcionando correctamente.</p>
+          </details>
+          <details>
+            <summary>¿Atienden urgencias?</summary>
+            <p>Se revisa disponibilidad por WhatsApp. En temporada alta la agenda puede llenarse, por eso conviene pedir cita con anticipación.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="foot-brand">
+        <img src="assets/logo.svg" alt="">
+        <div>
+          <b>Aire Acondicionado y Confort</b>
+          <span>El equilibrio perfecto para tu clima</span>
+        </div>
+      </div>
+      <div class="foot-info">
+        <div>WhatsApp: 33 1076 6424 · 56 1532 6488</div>
+        <div>Servicio en Tonalá, El Salto, Vistas California y ZMG.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const PHONE = "523310766424";
+    const DEFAULT_MESSAGE = "Hola, quiero cotizar un servicio de aire acondicionado con Aire Acondicionado y Confort.";
+    const wa = (msg) => `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
+
+    const staticLinks = {
+      navWa: DEFAULT_MESSAGE,
+      heroWa: "Hola, quiero cotizar un servicio de aire acondicionado. Me interesa saber precio, disponibilidad y qué incluye.",
+      zoneWa: "Hola, estoy en la zona de Vistas California / El Salto / Tonalá y quiero cotizar un servicio de aire acondicionado.",
+      floatingWa: DEFAULT_MESSAGE
+    };
+
+    for (const [id, msg] of Object.entries(staticLinks)) {
+      const el = document.getElementById(id);
+      if (el) el.href = wa(msg);
+    }
+
+    function updateQuoteLink(){
+      const service = document.getElementById("service").value;
+      const zone = document.getElementById("zone").value;
+      const capacity = document.getElementById("capacity").value;
+      const name = document.getElementById("clientName").value.trim() || "Por confirmar";
+      const details = document.getElementById("details").value.trim() || "Por confirmar";
+
+      const msg =
+`Hola, quiero cotizar con Aire Acondicionado y Confort.
+
+Nombre: ${name}
+Servicio: ${service}
+Zona: ${zone}
+Equipo: ${capacity}
+Detalles: ${details}
+
+¿Me pueden apoyar con precio y disponibilidad?`;
+
+      document.getElementById("quoteWa").href = wa(msg);
+    }
+
+    ["service","zone","capacity","clientName","details"].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener("input", updateQuoteLink);
+      el.addEventListener("change", updateQuoteLink);
+    });
+
+    updateQuoteLink();
+  </script>
 </body>
 </html>
