@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DÚO FRÍO CMMS Lite</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0ea5e9">
+  <style>
+    :root {
+      --bg:#f8fafc; --fg:#0f172a; --muted:#64748b; --brand:#0ea5e9; --danger:#ef4444; --ok:#16a34a; --card:#ffffff; --line:#e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif; }
+    header { position:sticky; top:0; background:rgba(255,255,255,.9); backdrop-filter: blur(6px); border-bottom:1px solid var(--line); }
+    .wrap { max-width: 1100px; margin:0 auto; padding: 12px 16px; }
+    .brand { display:flex; align-items:center; gap:10px; }
+    .brand h1 { font-size: 18px; margin:0; }
+    .row { display:flex; gap:10px; align-items:center; }
+    .pill { padding:4px 10px; background:#e2f2fb; border-radius:999px; font-size:12px; }
+    .tabs { display:flex; gap:6px; border-bottom:1px solid var(--line); margin-top:10px; }
+    .tab { padding:8px 12px; border-radius:10px 10px 0 0; cursor:pointer; color:var(--muted); }
+    .tab.active { color:var(--fg); background:var(--card); border:1px solid var(--line); border-bottom: none; }
+    main { padding: 16px; }
+    .grid { display:grid; gap:12px; }
+    @media(min-width:768px){ .grid.cols-2{ grid-template-columns: 1fr 1fr; } .grid.cols-4{ grid-template-columns: repeat(4, 1fr);}}
+    .card { background: var(--card); border:1px solid var(--line); border-radius:14px; padding:12px; }
+    .kpi { text-align:left; }
+    .kpi .v { font-size:24px; font-weight:700; }
+    input, select, textarea, button { font:inherit; }
+    input, select, textarea { width:100%; padding:10px; border:1px solid var(--line); border-radius:10px; background:white; }
+    label { font-size:12px; color:var(--muted); display:block; margin-bottom:4px; }
+    .btn { padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#fff; cursor:pointer; }
+    .btn.brand { background:var(--brand); color:white; border-color: var(--brand); }
+    .btn.danger { background:var(--danger); color:white; border-color: var(--danger); }
+    .btn.ghost { background:transparent; }
+    .row-between { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .muted { color: var(--muted); }
+    .badge { display:inline-block; padding:2px 8px; font-size:11px; background:#eef2f7; border-radius:999px; }
+    .list { display:grid; gap:8px; }
+    .hidden { display:none; }
+    .toolbar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .chips { display:flex; gap:4px; flex-wrap:wrap; }
+    .thumbs { display:flex; gap:6px; flex-wrap:wrap; }
+    canvas.sig { border:1px dashed var(--line); border-radius:10px; width:100%; height:160px; touch-action:none; background:white; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap row-between">
+    <div class="brand">
+      <img src="icons/icon-192.png" width="28" height="28" alt="logo">
+      <div>
+        <h1>DÚO FRÍO · CMMS Lite</h1>
+        <div id="userTag" class="muted" style="font-size:12px;">Sin sesión</div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <input id="search" placeholder="Buscar..." />
+      <button class="btn" id="exportWO">Exportar OTs</button>
+      <button class="btn" id="exportAssets">Exportar Activos</button>
+      <button class="btn" id="installBtn" style="display:none;">Instalar</button>
+      <button class="btn" id="logoutBtn"><span>Salir</span></button>
+    </div>
+  </div>
+  <div class="wrap tabs">
+    <div class="tab active" data-tab="dashboard">Dashboard</div>
+    <div class="tab" data-tab="orders">Órdenes</div>
+    <div class="tab" data-tab="assets">Activos</div>
+    <div class="tab" data-tab="techs">Técnicos</div>
+    <div class="tab" data-tab="settings">Ajustes</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- Login -->
+  <section id="loginView" class="card">
+    <h2>Iniciar sesión</h2>
+    <div class="grid cols-2">
+      <div>
+        <label>Usuario</label>
+        <input id="loginUser" placeholder="admin / karen">
+      </div>
+      <div>
+        <label>Contraseña</label>
+        <input id="loginPass" placeholder="1234" type="password">
+      </div>
+    </div>
+    <div style="margin-top:10px;">
+      <button class="btn brand" id="loginBtn">Entrar</button>
+      <span class="muted" style="font-size:12px; margin-left:8px;">Demo: admin/1234 (admin) · karen/1234 (técnico)</span>
+    </div>
+  </section>
+
+  <!-- Dashboard -->
+  <section id="dashboard" class="hidden">
+    <div class="grid cols-4">
+      <div class="card kpi"><div class="muted">OTs totales</div><div class="v" id="kpi_total">0</div></div>
+      <div class="card kpi"><div class="muted">OTs abiertas</div><div class="v" id="kpi_open">0</div></div>
+      <div class="card kpi"><div class="muted">Críticas</div><div class="v" id="kpi_critical">0</div></div>
+      <div class="card kpi"><div class="muted">Cerradas 7d</div><div class="v" id="kpi_closed7">0</div></div>
+    </div>
+    <div class="card" style="margin-top:10px;">
+      <div class="muted">Consejo</div>
+      <div>Activa la app desde el menú de Android: <b>Agregar a pantalla principal</b> para usarla como PWA.</div>
+    </div>
+  </section>
+
+  <!-- Órdenes -->
+  <section id="orders" class="hidden">
+    <div class="row-between">
+      <h2>Órdenes de trabajo</h2>
+      <div class="toolbar">
+        <select id="filterStatus">
+          <option value="">Estado (todos)</option>
+          <option>Pendiente</option><option>En progreso</option><option>En revisión</option><option>Cerrada</option>
+        </select>
+        <button class="btn brand" id="newWO">Nueva OT</button>
+      </div>
+    </div>
+    <div id="woList" class="list" style="margin-top:10px;"></div>
+  </section>
+
+  <!-- Activos -->
+  <section id="assets" class="hidden">
+    <div class="row-between">
+      <h2>Activos</h2>
+      <button class="btn brand" id="newAsset">Nuevo Activo</button>
+    </div>
+    <div id="assetList" class="list" style="margin-top:10px;"></div>
+  </section>
+
+  <!-- Técnicos -->
+  <section id="techs" class="hidden">
+    <div class="row-between">
+      <h2>Técnicos</h2>
+      <button class="btn brand" id="newTech">Nuevo Técnico</button>
+    </div>
+    <div id="techList" class="list" style="margin-top:10px;"></div>
+  </section>
+
+  <!-- Ajustes -->
+  <section id="settings" class="hidden">
+    <div class="card">
+      <h3>Empresa</h3>
+      <div class="grid cols-2">
+        <div><label>Nombre comercial</label><input id="companyName"></div>
+        <div><label>Propietario</label><input id="companyOwner"></div>
+      </div>
+      <div style="margin-top:8px;">
+        <button class="btn" id="restoreBtn">Restaurar demo</button>
+        <button class="btn" id="importBtn">Importar CSV</button>
+        <input id="fileCSV" type="file" accept=".csv" class="hidden">
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Modal genérico -->
+<section id="modal" class="hidden" style="position:fixed; inset:0; display:grid; place-items:center; background:rgba(15,23,42,.3);">
+  <div class="card" style="width:min(720px, 95vw); max-height:90vh; overflow:auto;">
+    <div class="row-between">
+      <h3 id="modalTitle">Modal</h3>
+      <button class="btn" id="modalClose">Cerrar</button>
+    </div>
+    <div id="modalBody" style="margin-top:10px;"></div>
+  </div>
+</section>
+
+<script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(console.error);
+    });
+  }
+</script>
+</body>
+</html>
