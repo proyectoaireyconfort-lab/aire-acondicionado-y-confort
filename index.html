@@ -180,6 +180,26 @@ section{padding:76px 0}.head{text-align:center;max-width:850px;margin:0 auto 42p
 @media(max-width:940px){.v3-grid4,.v3-grid3{grid-template-columns:repeat(2,1fr)}.v3-promo-box,.v3-btu-box{grid-template-columns:1fr}}@media(max-width:620px){.v3-grid4,.v3-grid3,.v3-form{grid-template-columns:1fr}.v3-promo-box,.v3-btu-box{padding:20px;border-radius:30px}}
 /* FIN V3-SIN-FOTOS */
 
+
+/* V4 */
+.v4-wrap{padding:76px 0}.v4-white{background:#fff}.v4-soft{background:#f8fafc}
+.v4-box{background:#fff;border:1px solid var(--linea);border-radius:34px;padding:30px;box-shadow:var(--sombra)}
+.v4-dark{background:#0f172a;color:#fff;border-radius:30px;padding:30px}.v4-dark h2{color:#fff}.v4-dark p{color:rgba(255,255,255,.74);line-height:1.75;font-size:18px}
+.v4-two{display:grid;grid-template-columns:1fr .95fr;gap:24px;align-items:center}
+.v4-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.v4-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.v4-card{background:#fff;border:1px solid var(--linea);border-radius:26px;padding:22px;box-shadow:0 14px 34px rgba(15,23,42,.06)}
+.v4-card h3{margin:0 0 9px;font-size:21px}.v4-card p{margin:0;color:var(--gris);line-height:1.6}
+.v4-ico{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;font-size:27px;background:#e0f2fe;margin-bottom:14px}
+.v4-list{display:grid;gap:12px;margin:18px 0}.v4-list div{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:13px;font-weight:800}.v4-list i{font-style:normal;color:#86efac}
+.v4-checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}.v4-checks li{display:flex;gap:10px;color:#475569;font-weight:800;line-height:1.45}.v4-checks li:before{content:"✓";color:var(--verde);font-weight:900}
+.v4-table{display:grid;grid-template-columns:1fr 1fr;gap:18px}.v4-col{background:#fff;border:1px solid var(--linea);border-radius:30px;overflow:hidden;box-shadow:0 16px 38px rgba(15,23,42,.06)}.v4-col h3{margin:0;padding:22px;font-size:24px;color:#fff}.v4-bad h3{background:#991b1b}.v4-good h3{background:#075985}.v4-row{display:flex;gap:12px;padding:16px 20px;border-top:1px solid var(--linea);font-weight:800;color:#475569}.v4-bad .v4-row span{color:#dc2626;font-weight:900}.v4-good .v4-row span{color:#16a34a;font-weight:900}
+.v4-symptom{background:#f8fafc;border:1px solid var(--linea);border-radius:24px;padding:20px;font-weight:900;color:#334155;display:flex;align-items:center;gap:11px;box-shadow:0 12px 28px rgba(15,23,42,.05)}.v4-symptom b{width:42px;height:42px;border-radius:15px;background:#e0f2fe;display:grid;place-items:center;font-size:23px;flex:0 0 auto}
+.v4-cta{margin-top:26px;background:#0f172a;color:#fff;border-radius:30px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.v4-cta h3{margin:0 0 8px;font-size:24px}.v4-cta p{margin:0;color:rgba(255,255,255,.72);line-height:1.6}
+.v4-brand-cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:980px;margin:0 auto}.v4-pill{background:#fff;border:1px solid var(--linea);border-radius:999px;padding:12px 16px;font-weight:900;color:#334155;box-shadow:0 10px 24px rgba(15,23,42,.05)}
+@media(max-width:940px){.v4-two,.v4-table{grid-template-columns:1fr}.v4-grid4{grid-template-columns:repeat(2,1fr)}.v4-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.v4-grid,.v4-grid4{grid-template-columns:1fr}.v4-box,.v4-dark{padding:22px;border-radius:26px}}
+/* FIN V4 */
+
 </style>
 </head>
 <body>
@@ -296,6 +316,61 @@ section{padding:76px 0}.head{text-align:center;max-width:850px;margin:0 auto 42p
   </div>
 </section>
 
+
+<section class="v4-wrap v4-white" id="asesoria-compra">
+  <div class="wrap">
+    <div class="v4-box v4-two">
+      <div class="v4-dark">
+        <div class="eyebrow" style="color:#7dd3fc">Asesoría antes de comprar</div>
+        <h2>¿No sabes qué aire acondicionado comprar?</h2>
+        <p>Antes de elegir el más barato o el de oferta, revisa si realmente te sirve para tu espacio. Una mala elección puede causar bajo enfriamiento, más consumo o fallas prematuras.</p>
+        <div class="v4-list">
+          <div><i>✓</i> Revisamos medidas del cuarto y condiciones de calor.</div>
+          <div><i>✓</i> Te orientamos entre convencional e inverter.</div>
+          <div><i>✓</i> Te decimos qué considerar de instalación, voltaje y garantía.</div>
+        </div>
+        <a class="btn btn-green" id="waAsesoria" target="_blank" rel="noreferrer">Quiero asesoría antes de comprar</a>
+      </div>
+      <div class="v4-card">
+        <h3>Antes de comprar revisa:</h3>
+        <ul class="v4-checks">
+          <li>Medida del cuarto en metros.</li><li>Si le pega mucho el sol.</li><li>Si es planta alta o techo caliente.</li><li>Voltaje disponible: 110V o 220V.</li><li>Si conviene inverter o convencional.</li><li>Costo real de instalación y material extra.</li><li>Ubicación del evaporador y condensador.</li><li>Garantía del equipo y condiciones de instalación.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="v4-wrap v4-soft" id="instalacion-profesional">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">Comparación importante</div><h2>Instalación barata vs instalación profesional.</h2><p>Una instalación muy barata puede salir cara si no se hace con procedimiento correcto.</p></div>
+    <div class="v4-table">
+      <div class="v4-col v4-bad"><h3>Instalación improvisada</h3><div class="v4-row"><span>✕</span>No siempre hacen vacío.</div><div class="v4-row"><span>✕</span>Cableado improvisado o sin protección.</div><div class="v4-row"><span>✕</span>No revisan amperaje ni voltaje.</div><div class="v4-row"><span>✕</span>Drenaje mal hecho o sin prueba.</div><div class="v4-row"><span>✕</span>No explican qué incluye ni qué no incluye.</div></div>
+      <div class="v4-col v4-good"><h3>Aire Acondicionado y Confort</h3><div class="v4-row"><span>✓</span>Vacío correcto antes del arranque.</div><div class="v4-row"><span>✓</span>Protección eléctrica recomendada.</div><div class="v4-row"><span>✓</span>Revisión de voltaje y amperaje.</div><div class="v4-row"><span>✓</span>Drenaje probado y bien orientado.</div><div class="v4-row"><span>✓</span>Cotización clara y trabajo explicado.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="v4-wrap v4-white" id="sintomas">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">Diagnóstico</div><h2>¿Tu minisplit presenta alguno de estos síntomas?</h2><p>No esperes a que la falla crezca. Muchas veces un diagnóstico a tiempo evita reparaciones más caras.</p></div>
+    <div class="v4-grid4">
+      <div class="v4-symptom"><b>❄️</b>No enfría como antes</div><div class="v4-symptom"><b>💧</b>Tira agua</div><div class="v4-symptom"><b>👃</b>Huele mal</div><div class="v4-symptom"><b>🔊</b>Hace ruido</div><div class="v4-symptom"><b>⚡</b>Se apaga solo</div><div class="v4-symptom"><b>🧊</b>Congela tubería</div><div class="v4-symptom"><b>📱</b>No responde control</div><div class="v4-symptom"><b>💸</b>Consume más luz</div>
+    </div>
+    <div class="v4-cta"><div><h3>Cuéntanos qué falla presenta tu equipo.</h3><p>Mándanos zona, marca, capacidad y una descripción de la falla para orientarte mejor.</p></div><a class="btn btn-green" id="waSintomas" target="_blank" rel="noreferrer">Pedir diagnóstico</a></div>
+  </div>
+</section>
+
+<section class="v4-wrap v4-soft" id="marcas">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">Marcas</div><h2>Atendemos la mayoría de marcas de minisplit.</h2><p>Instalación, mantenimiento y diagnóstico en equipos residenciales y comerciales ligeros.</p></div>
+    <div class="v4-brand-cloud">
+      <span class="v4-pill">Mirage</span><span class="v4-pill">Midea</span><span class="v4-pill">LG</span><span class="v4-pill">Samsung</span><span class="v4-pill">Carrier</span><span class="v4-pill">York</span><span class="v4-pill">Trane</span><span class="v4-pill">Gree</span><span class="v4-pill">Hisense</span><span class="v4-pill">Prime</span><span class="v4-pill">Aux</span><span class="v4-pill">Daikin</span><span class="v4-pill">Y más</span>
+    </div>
+    <div class="v4-cta"><div><h3>Guarda nuestro contacto para temporada de calor.</h3><p>Cuando tu equipo necesite mantenimiento, instalación o diagnóstico, tendrás a la mano un servicio técnico confiable.</p></div><a class="btn btn-green" id="waGuardar" target="_blank" rel="noreferrer">Guardar contacto</a></div>
+  </div>
+</section>
+
 <section id="cotizar"><div class="wrap"><div class="head"><div class="eyebrow">Contacto</div><h2>Cotiza rápido y sin vueltas.</h2><p>Llena estos datos y se arma un mensaje directo para WhatsApp.</p></div><div class="quote"><div class="quote-head"><div class="icon">🧮</div><div><h3>Cotización rápida</h3><p>El mensaje se genera automáticamente.</p></div></div><div class="form"><label>Servicio<select id="service"><option>Instalación de minisplit</option><option>Mantenimiento preventivo</option><option>Diagnóstico / reparación</option><option>Venta de equipo + instalación</option><option>Refrigeración comercial</option></select></label><label>Zona<select id="zone"><option>Tonalá</option><option>El Salto</option><option>Vistas California</option><option>Guadalajara</option><option>Tlaquepaque</option><option>Zapotlanejo</option><option>Otra zona</option></select></label><label>Capacidad / equipo<select id="capacity"><option>1 tonelada / 12,000 BTU</option><option>1.5 toneladas / 18,000 BTU</option><option>2 toneladas / 24,000 BTU</option><option>No sé, necesito asesoría</option><option>Equipo comercial / industrial</option></select></label><label>Nombre<input id="clientName" placeholder="Tu nombre"></label><label style="grid-column:1/-1">Detalles<textarea id="details" placeholder="Ejemplo: segundo piso, cuarto del fondo, tira agua, no enfría, instalación nueva, tengo el equipo, etc."></textarea></label></div><div class="form-actions"><a class="btn btn-dark" id="quoteWa" target="_blank" rel="noreferrer">Enviar solicitud por WhatsApp</a><a class="btn btn-white" href="tel:+523310766424">Llamar: 33 1076 6424</a></div></div></div></section>
 <section class="white"><div class="wrap"><div class="head"><div class="eyebrow">Preguntas frecuentes</div><h2>Antes de contratar, esto te conviene saber.</h2></div><details open><summary>¿Qué incluye una instalación básica?</summary><p>Depende del sitio, pero normalmente incluye montaje, tubería básica, drenaje, conexión, vacío y prueba de funcionamiento. Si requiere más metros, bomba de condensados o trabajo eléctrico extra, se cotiza aparte.</p></details><details><summary>¿Por qué es importante el vacío?</summary><p>Porque ayuda a retirar humedad y aire del sistema antes del arranque. Una instalación sin buen procedimiento puede afectar rendimiento y vida útil del equipo.</p></details><details><summary>¿Puedo comprar el equipo por mi cuenta?</summary><p>Sí. También podemos apoyarte con instalación y recomendaciones para que el equipo quede protegido y funcionando correctamente.</p></details><details><summary>¿Atienden urgencias?</summary><p>Se revisa disponibilidad por WhatsApp. En temporada alta la agenda puede llenarse, por eso conviene pedir cita con anticipación.</p></details></div></section>
 
@@ -350,6 +425,19 @@ function calc(){
 }
 ["btuLargo","btuAncho","btuSol","btuPlanta","btuPersonas","btuUso"].forEach(id=>{const e=document.getElementById(id); if(e){e.addEventListener("input",calc); e.addEventListener("change",calc);}});
 calc();
+})();
+</script>
+
+
+<script id="v4-js">
+(function(){
+const PHONE="523310766424";const wa=m=>`https://wa.me/${PHONE}?text=${encodeURIComponent(m)}`;
+const links={
+waAsesoria:`Hola, quiero asesoría antes de comprar un minisplit.\n\nMedidas aproximadas del cuarto:\nZona donde vivo:\n¿Le pega el sol?:\n¿Tengo 110V o 220V?:\nPresupuesto aproximado:\n¿Busco inverter o convencional?:`,
+waSintomas:`Hola, quiero diagnóstico para mi aire acondicionado.\n\nZona:\nMarca/capacidad del equipo:\nFalla que presenta:\n¿Prende?:\n¿No enfría, tira agua, hace ruido o se apaga?:\n¿Puedo mandar fotos o video?: Sí`,
+waGuardar:`Hola, quiero guardar el contacto de Aire Acondicionado y Confort para servicios de instalación, mantenimiento y reparación.`
+};
+Object.entries(links).forEach(([id,msg])=>{const el=document.getElementById(id);if(el)el.href=wa(msg);});
 })();
 </script>
 
