@@ -214,6 +214,217 @@ section{padding:76px 0}.head{text-align:center;max-width:850px;margin:0 auto 42p
 @media(max-width:940px){.v5-include-grid,.v5-hours-share{grid-template-columns:1fr}}@media(max-width:620px){.v5-card,.v5-share,.v5-local{padding:22px;border-radius:26px}}
 /* FIN V5-CONVERSION */
 
+
+/* V6-FUTURISTA-PRO */
+:root{
+  --fondo:#050816;
+  --panel:rgba(15,23,42,.72);
+  --panel2:rgba(2,8,23,.88);
+  --neon-blue:#38bdf8;
+  --neon-red:#fb7185;
+  --neon-cyan:#22d3ee;
+}
+body{
+  background:
+    radial-gradient(circle at 15% 10%,rgba(56,189,248,.18),transparent 30%),
+    radial-gradient(circle at 88% 8%,rgba(251,113,133,.14),transparent 28%),
+    radial-gradient(circle at 50% 105%,rgba(14,165,233,.12),transparent 35%),
+    #050816 !important;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background-image:
+    linear-gradient(rgba(56,189,248,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,189,248,.055) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.75),rgba(0,0,0,.20));
+}
+header{
+  background:rgba(2,6,23,.78) !important;
+  border-bottom:1px solid rgba(56,189,248,.24) !important;
+  box-shadow:0 0 30px rgba(56,189,248,.08);
+}
+.topline{
+  background:linear-gradient(90deg,#38bdf8,#ffffff,#fb7185) !important;
+  box-shadow:0 0 18px rgba(56,189,248,.55);
+}
+.brand b,.links a{
+  color:#e0f2fe !important;
+}
+.brand span{
+  color:#93c5fd !important;
+}
+.links a:hover{
+  color:#38bdf8 !important;
+  text-shadow:0 0 14px rgba(56,189,248,.85);
+}
+.hero{
+  background:
+    radial-gradient(circle at 12% 14%,rgba(56,189,248,.22),transparent 32%),
+    radial-gradient(circle at 88% 14%,rgba(251,113,133,.18),transparent 30%),
+    linear-gradient(135deg,#020617,#0f172a 55%,#111827) !important;
+  color:#fff;
+  position:relative;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(120deg,transparent 0 45%,rgba(56,189,248,.08) 47%,transparent 49%),
+    radial-gradient(circle at 50% 50%,transparent 0 52%,rgba(56,189,248,.08) 53%,transparent 54%);
+}
+.hero .wrap{
+  position:relative;
+  z-index:1;
+}
+.hero h1{
+  color:#f8fafc !important;
+  text-shadow:0 0 34px rgba(56,189,248,.20);
+}
+.hero p{
+  color:#cbd5e1 !important;
+}
+.badge{
+  background:rgba(15,23,42,.70) !important;
+  color:#e0f2fe !important;
+  border:1px solid rgba(56,189,248,.30) !important;
+  box-shadow:0 0 24px rgba(56,189,248,.12) !important;
+  backdrop-filter:blur(16px);
+}
+.visual,.phone-card,.v4-dark,.v3-btu-info,.v3-promo-box,.cta-final,.v5-share{
+  background:
+    radial-gradient(circle at 10% 10%,rgba(56,189,248,.18),transparent 35%),
+    radial-gradient(circle at 92% 85%,rgba(251,113,133,.16),transparent 35%),
+    rgba(2,6,23,.88) !important;
+  border:1px solid rgba(56,189,248,.22) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.05) inset,
+    0 0 38px rgba(56,189,248,.12),
+    0 26px 70px rgba(0,0,0,.38) !important;
+}
+.glass,.v4-box,.quote,.quote-box,.v5-card,.v5-local,.products-box,.v3-btu-box,.v4-card,.card,.price,.testimonial,.gallery-card,.step,.v3-card,.v5-include-card{
+  background:rgba(255,255,255,.82) !important;
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(148,163,184,.42) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.30) inset,
+    0 18px 44px rgba(2,6,23,.18) !important;
+}
+.v5-card.dark,.v5-include-card.v5-dark{
+  background:
+    radial-gradient(circle at top left,rgba(56,189,248,.18),transparent 35%),
+    rgba(2,6,23,.88) !important;
+  color:#fff !important;
+  border:1px solid rgba(56,189,248,.24) !important;
+}
+.btn-dark,.btn-primary{
+  background:linear-gradient(135deg,#0284c7,#0f172a) !important;
+  border:1px solid rgba(56,189,248,.55) !important;
+  color:#fff !important;
+  box-shadow:
+    0 0 18px rgba(56,189,248,.30),
+    0 16px 34px rgba(15,23,42,.28) !important;
+}
+.btn-green,.v3-card a,.wa-card a,.v5-promo-inner a{
+  background:linear-gradient(135deg,#16a34a,#22c55e) !important;
+  box-shadow:0 0 20px rgba(34,197,94,.32) !important;
+}
+.btn-white{
+  background:rgba(255,255,255,.90) !important;
+  border:1px solid rgba(56,189,248,.22) !important;
+}
+.icon,.v4-ico,.v3-ico,.wa-icon,.g-icon,.v5-symptom b,.v4-symptom b{
+  background:linear-gradient(135deg,#e0f2fe,#ffffff) !important;
+  box-shadow:0 0 20px rgba(56,189,248,.16);
+}
+section{
+  position:relative;
+}
+section.white,.white,.v4-white,.v5-white,.tech-guarantee,.packages-bg{
+  background:
+    radial-gradient(circle at 12% 10%,rgba(56,189,248,.10),transparent 28%),
+    radial-gradient(circle at 88% 90%,rgba(251,113,133,.08),transparent 28%),
+    rgba(248,250,252,.96) !important;
+}
+.v4-soft,.v5-soft,.v4-comparativa,.v4-marcas,.v3-btu,.promo-season{
+  background:
+    radial-gradient(circle at 15% 10%,rgba(56,189,248,.14),transparent 30%),
+    radial-gradient(circle at 85% 88%,rgba(251,113,133,.10),transparent 30%),
+    #eef6ff !important;
+}
+.dark{
+  background:
+    radial-gradient(circle at 15% 20%,rgba(56,189,248,.20),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(251,113,133,.16),transparent 30%),
+    #020617 !important;
+}
+h2,h3{
+  letter-spacing:-.045em;
+}
+.eyebrow{
+  color:#0284c7 !important;
+  text-shadow:0 0 16px rgba(56,189,248,.18);
+}
+.v5-promo-top{
+  background:linear-gradient(90deg,#020617,#075985,#7f1d1d) !important;
+  box-shadow:0 0 28px rgba(56,189,248,.14);
+}
+.v5-promo-inner span{
+  color:#e0f2fe;
+}
+.stat{
+  background:rgba(255,255,255,.88) !important;
+  border:1px solid rgba(56,189,248,.20) !important;
+}
+.v4-col,.v5-card,.v4-card,.v3-card,.card,.price{
+  transition:.22s ease;
+}
+.v4-col:hover,.v5-card:hover,.v4-card:hover,.v3-card:hover,.card:hover,.price:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,.18) inset,
+    0 24px 58px rgba(2,6,23,.17),
+    0 0 26px rgba(56,189,248,.10) !important;
+}
+.logo,.brand-logo-full,.foot-logo-full{
+  filter:drop-shadow(0 0 14px rgba(56,189,248,.24));
+}
+.floating{
+  box-shadow:
+    0 0 0 4px rgba(255,255,255,.95),
+    0 0 24px rgba(34,197,94,.45),
+    0 18px 40px rgba(22,163,74,.35) !important;
+}
+input,select,textarea{
+  background:rgba(248,250,252,.96) !important;
+  border:1px solid rgba(148,163,184,.50) !important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:#38bdf8 !important;
+  box-shadow:0 0 0 4px rgba(56,189,248,.15),0 0 20px rgba(56,189,248,.12) !important;
+}
+.v6-hud-line{
+  height:1px;
+  width:100%;
+  background:linear-gradient(90deg,transparent,#38bdf8,#fb7185,transparent);
+  opacity:.7;
+  box-shadow:0 0 18px rgba(56,189,248,.45);
+}
+@media(max-width:620px){
+  .hero{
+    background:
+      radial-gradient(circle at 10% 10%,rgba(56,189,248,.20),transparent 35%),
+      linear-gradient(135deg,#020617,#0f172a) !important;
+  }
+}
+/* FIN V6-FUTURISTA-PRO */
+
 </style>
 </head>
 <body>
@@ -232,6 +443,7 @@ section{padding:76px 0}.head{text-align:center;max-width:850px;margin:0 auto 42p
 
 <a class="floating" id="floatingWa" target="_blank" rel="noreferrer" aria-label="WhatsApp">☏</a>
 <header><div class="topline"></div><div class="wrap nav"><a class="brand" href="#inicio"><div class="logo" aria-hidden="true"></div><div><b>Aire Acondicionado y Confort</b><span>El equilibrio perfecto para tu clima</span></div></a><nav class="links"><a href="#servicios">Servicios</a><a href="#paquetes">Paquetes</a><a href="#zonas">Zonas</a><a href="#cotizar">Cotizar</a></nav><a class="btn btn-dark" id="navWa" target="_blank" rel="noreferrer">WhatsApp</a></div></header>
+<div class="v6-hud-line"></div>
 <main>
 <section class="hero" id="inicio"><div class="wrap hero-grid"><div><div class="badge">⭐ Servicio técnico HVAC en ZMG</div><h1>Aire acondicionado bien instalado, bien cuidado y sin improvisaciones.</h1><p>Instalación, mantenimiento y reparación de minisplits con enfoque técnico profesional. Trabajamos para que tu equipo enfríe mejor, consuma lo correcto y dure más tiempo.</p><div class="hero-actions"><a class="btn btn-dark" id="heroWa" target="_blank" rel="noreferrer">Quiero cotizar ahora</a><a class="btn btn-white" href="#servicios">Ver servicios →</a></div><div class="stats"><div class="stat"><b>HVAC</b><span>Técnico especializado</span></div><div class="stat"><b>ZMG</b><span>Cobertura local</span></div><div class="stat"><b>Claro</b><span>Cotización sin vueltas</span></div></div></div><aside class="visual"><div class="glass"><div class="mini"><div class="logo" aria-hidden="true"></div><div><b>Servicio profesional</b><span>Frío, confort y seguridad</span></div></div><div class="checks"><div class="check"><i>✓</i> Vacío correcto antes del arranque.</div><div class="check"><i>✓</i> Protección eléctrica recomendada.</div><div class="check"><i>✓</i> Revisión de amperaje y voltaje.</div><div class="check"><i>✓</i> Drenaje y tubería bien instalados.</div></div></div></aside></div></section>
 
